@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../src/config.php';
 require_once __DIR__ . '/../src/controllers/AuthController.php';
-
+print_r($_SESSION); die;
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $authController = new AuthController($db);
     $response = $authController->login($_POST['username'], $_POST['password']);
