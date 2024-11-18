@@ -16,13 +16,17 @@ class ProtectedController {
         // Jika token tidak valid atau tidak ditemukan
         if ($authResponse['error']) {
             http_response_code(401);  // Unauthorized
-            header("Location: /login");  // Arahkan ke login
+            header("Location: ".Env::get('URL_BASE')."/login");  // Arahkan ke login
             exit;
         }
 
         // Jika token valid, kirim data ke view
         $user = $authResponse['payload']; // Payload user dari token
-        require_once __DIR__ . '/../views/dashboard.php'; // Tampilkan halaman dashboard dengan data pengguna
+        $content = __DIR__ . '/../views/dashboard.php'; // Render the update form
+        
+
+        // Pass the order data and load the layout
+        require_once __DIR__ . '/../views/layout.php';
     }
 
     // Logout dan hapus token dari session

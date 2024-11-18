@@ -45,7 +45,7 @@ class JWTMiddleware {
 
         // Jika sudah ada token di session, arahkan ke halaman dashboard
         if (isset($_SESSION['token'])) {
-            header("Location: /dashboard");
+            header("Location: ".Env::get('URL_BASE')."/dashboard");
             exit;
         }
     }
