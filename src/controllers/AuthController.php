@@ -82,14 +82,34 @@ class AuthController {
         }
     }
 
-    public function login($username, $password) {
-        $user = $this->userModel->findByUsername($username);
-
-        if (!$user || !password_verify($password, $user['password'])) {
-            return ['error' => true, 'message' => 'Invalid credentials'];
+    // Handle login request
+    public function login($data) {
+        // Validate input
+        if (empty($data['username']) || empty($data['password'])) {
+            return ['error' => true, 'message' => 'Username and password are required.'];
         }
 
-        return ['error' => false, 'message' => 'Login successful', 'user' => $user];
+        $user = $this->userModel->findByUsername($data['username']);
+        if (!$user || !password_verify($data['password'], $user['password'])) {
+            return ['error' => true, 'message' => 'Invalid credentials.'];
+        }
+
+        // Generate JWT token
+        $payload = [
+            'sub' => $user['id'], // User ID
+            'name' => $user['username'], // Username
+            'role' => $user['role'], // User role
+            'iat' => time(),
+            'exp' => time() + (60 * 60) // Token valid for 1 hour
+        ];
+
+        $token = JWT::encode($payload, $this->secretKey, 'HS256');
+
+        return [
+            'error' => false,
+            'message' => 'Login successful.',
+            'token' => $token
+        ];
     }
 }
 ?>
