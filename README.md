@@ -39,7 +39,6 @@ An **E-commerce Management System** designed to handle customer management, orde
 - **PHP 8.2** or higher
 - **PostgreSQL** database
 - **Composer** for managing dependencies
-- **Node.js** and **npm** (for managing JS packages if required)
 
 ## Installation
 
