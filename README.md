@@ -1,9 +1,3 @@
-# E-commerce Management System
-
-## Description
-
-An **E-commerce Management System** designed to handle customer management, order management, and user authentication for an online store. The system uses PHP 8.2, PostgreSQL for database management, Bootstrap for responsive design, JWT for secure user authentication, and JavaScript for client-side interactivity.
-
 ## Features
 
 - **Customer Management**:
