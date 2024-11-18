@@ -28,11 +28,11 @@ An **E-commerce Management System** designed to handle customer management, orde
 
 ## Technology Stack
 
-- **PHP 8.2**: Backend server-side scripting
+- **PHP 8.2** native
 - **PostgreSQL**: Database management
 - **Bootstrap 5**: For responsive, mobile-first design
 - **JWT (JSON Web Token)**: For secure user authentication and authorization
-- **JavaScript**: For client-side interactivity and validation
+- **JavaScript**
 
 ## Prerequisites
 
